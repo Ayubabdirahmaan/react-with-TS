@@ -1,15 +1,15 @@
-import { Welcome } from "./Welcome";
+// import { Welcome } from "./Welcome";
 
-import { UserInfo } from "./UserInfo";
+import { Greeting } from "./greeting";
 
-import { ProductCard } from "./ProductCard";
+// import { UserInfo } from "./UserInfo";
+
+// import { ProductCard } from "./ProductCard";
 
 function App() {
   return (
     <>
-      <Welcome username="welcome back premium user" isPremium={true} />
-      <ProductCard name="iphone x" price={2000} />
-      <UserInfo name="ayub" status={false} />
+    <Greeting name="ayubdheere"  age={22}  />
     </>
   );
 }
