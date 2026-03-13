@@ -1,26 +1,47 @@
 import { useState } from "react";
-
 interface User {
-  name: string;
-  age: number;
+  username: string;
+  email: string;
+}
+interface Todo {
+  id: number;
+  task: string;
+  done: boolean;
 }
 function App() {
-  const [count, setCont] = useState<number>(0);
-  const [data, setData] = useState<User | null>(null);
-  const [tasks, setTasks] = useState<string[]>([])
+  const [count, setCount] = useState<number>(0);
+  const [user, setUser] = useState<User | null>(null);
+  const [todo, setTodo] = useState<Todo[]>([]);
   return (
     <>
-      <button onClick={() => setCont(count + 1)}>addition</button>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <button onClick={() => setCount(count - 1)}>Decrement</button>
       <p>{count}</p>
-      <button onClick={() => setData({ name: "ayubdheere", age: 23 })}>
-        bad me
+
+      <button
+        onClick={() =>
+          setUser({ username: "ayubdheere", email: "ayubdheere@gmail.com" })
+        }
+      >
+        User Data
       </button>
-      <button onClick={() => setData(null)}>bad me</button>
+      <button onClick={() => setUser(null)}>bad me</button>
+      <p>{user?.username}</p>
 
-      <p>{data?.name}</p>
-
-      <button onClick={() => setTasks(["ayubabdirahman", " ", "ahmed", " ", "salah"])}>add TASKS</button>
-      <p>{tasks}</p>
+      <button
+        onClick={() =>
+          setTodo([{ ...setTodo, id: 1, task: "create task", done: true }])
+        }
+      >
+        add Tasks
+      </button>
+      {todo.map((todos) => (
+        <div>
+          <p>{todos.id}</p>
+          <p key={todos.id}>{todos.task}</p>
+          <p>{todos.done}</p>
+        </div>
+      ))}
     </>
   );
 }
