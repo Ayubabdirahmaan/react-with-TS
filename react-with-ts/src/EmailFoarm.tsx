@@ -3,7 +3,7 @@ interface emailProps {
     onSubmit: (value: string) => void
 }
 export const EmailFoarm = ({ onSubmit }: emailProps) => {
-    const [emailForm, setEmailForm] = useState<string>(" ")
+    const [emailForm, setEmailForm] = useState<string>("")
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         onSubmit(emailForm)
