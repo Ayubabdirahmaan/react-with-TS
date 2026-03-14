@@ -1,11 +1,16 @@
-import { FormUser } from "./FormUser";
+import { AgeForm } from "./AgeForm";
 
 function App() {
-  const handleChange = (data: string) => {
-      console.log(data.toUpperCase())
+  const handleSubmit = (age: number) => {
+    if (age < 18) {
+      console.log("don't submit")
+      return
+    } else {
+      confirm('welcome man')
+    }
   }
   return <>
-  <FormUser onSubmit={handleChange} />
+    <AgeForm onSubmit={handleSubmit} />
   </>;
 }
 
