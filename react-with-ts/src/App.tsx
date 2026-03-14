@@ -1,17 +1,15 @@
-import { AgeForm } from "./AgeForm";
+import { ContactForm } from "./ContactForm";
 
 function App() {
-  const handleSubmit = (age: number) => {
-    if (age < 18) {
-      console.log("don't submit")
-      return
-    } else {
-      confirm('welcome man')
-    }
+
+  const handlesubmit = ({ username, email }: { username: string, email: string }) => {
+    console.log({ username, email })
   }
-  return <>
-    <AgeForm onSubmit={handleSubmit} />
-  </>;
+ return (
+   <>
+    <ContactForm onSubmit={handlesubmit} />
+  </>
+ )
 }
 
 export default App;
