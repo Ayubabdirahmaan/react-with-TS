@@ -1,49 +1,36 @@
 import { useState } from "react";
 interface User {
-  username: string;
-  email: string;
+  name: string,
+  age: number
 }
-interface Todo {
-  id: number;
-  task: string;
-  done: boolean;
+interface userData {
+  id: number
+  name: string,
+  username: string
 }
 function App() {
-  const [count, setCount] = useState<number>(0);
-  const [user, setUser] = useState<User | null>(null);
-  const [todo, setTodo] = useState<Todo[]>([]);
-  return (
-    <>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-      <button onClick={() => setCount(count - 1)}>Decrement</button>
-      <p>{count}</p>
+  const [count, setCount] = useState<number>(0)
+  const [data, setData] = useState<User | null>(null)
+  const [task, setTask] = useState<userData[]>([])
+  return <>
+  <button onClick={() => setCount(count + 1)}>Increment</button>
+  <button onClick={() => setCount(count - 1)}>Decrement</button>
+   <p>{count}</p>
+    <button onClick={() => setData({name: "ayubdheere", age: 22})}>bad me</button>
+   <button onClick={() => setData(null)}>click me</button>
+   <p>{data?.name}</p>
 
-      <button
-        onClick={() =>
-          setUser({ username: "ayubdheere", email: "ayubdheere@gmail.com" })
-        }
-      >
-        User Data
-      </button>
-      <button onClick={() => setUser(null)}>bad me</button>
-      <p>{user?.username}</p>
-
-      <button
-        onClick={() =>
-          setTodo([{ ...setTodo, id: 1, task: "create task", done: true }])
-        }
-      >
-        add Tasks
-      </button>
-      {todo.map((todos) => (
-        <div>
-          <p>{todos.id}</p>
-          <p key={todos.id}>{todos.task}</p>
-          <p>{todos.done}</p>
-        </div>
-      ))}
-    </>
-  );
+   <button onClick={() => setTask([{id:1, name: "farah", username: "farah11"}])}>add Taks</button>
+   {
+    task.map(tasks => (
+      <div>
+        <p>{tasks.id}</p>
+        <p>{tasks.name}</p>
+        <p>{tasks.username}</p>
+      </div>
+    ))
+   }
+  </>;
 }
 
 export default App;
